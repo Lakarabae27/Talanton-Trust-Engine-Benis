@@ -16,6 +16,14 @@
 /** Deep forest green — the wordmark on any light ground. */
 const INK = '#14402a'
 
+/**
+ * On the deep-green grounds the mark is a warm light grey, not white.
+ *
+ * This is taken from the artwork rather than chosen: pure white would be the obvious call and is
+ * wrong, because the grey sits back into the green instead of cutting a hole in it.
+ */
+const CHALK = '#bcbcb4'
+
 /** The dot. Yellow-green, and the one piece of colour in the mark. */
 const DOT = '#8cc63f'
 
@@ -31,14 +39,15 @@ export function BrandMark({
   caption?: string
 }) {
   // The dot is drawn rather than typed. A full stop renders differently in every face — square in
-  // some, lozenge in others — and this one has to be a circle.
+  // some, lozenge in others — and this one has to be a circle. It is also the only part of the
+  // mark that is not in the artwork: the client asked for it to stay.
   const metrics = {
     sm: { word: '1.125rem', dot: '0.24em', gap: '0.10em', caption: 'text-[0.55rem]' },
     md: { word: '1.5rem', dot: '0.23em', gap: '0.09em', caption: 'text-[0.6rem]' },
     lg: { word: '2.25rem', dot: '0.22em', gap: '0.08em', caption: 'text-[0.65rem]' },
   }[size]
 
-  const wordColor = tone === 'light' ? '#ffffff' : INK
+  const wordColor = tone === 'light' ? CHALK : INK
   const captionColor = tone === 'light' ? 'text-white/60' : 'text-gray-500'
 
   return (
@@ -48,12 +57,12 @@ export function BrandMark({
           className="flex items-baseline"
           style={{
             fontFamily: 'var(--font-brand-stack)',
-            fontWeight: 700,
+            fontWeight: 800,
             fontSize: metrics.word,
             lineHeight: 1,
-            // Slightly tightened, as the mark is set. Left to default the letters sit looser than
-            // the artwork.
-            letterSpacing: '-0.015em',
+            // The artwork sets the letters at their natural width. The previous serif needed
+            // tightening; this face does not, and tightening it jams the squared bowls together.
+            letterSpacing: '0',
             color: wordColor,
           }}
         >

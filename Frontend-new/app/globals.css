@@ -8,9 +8,9 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
   /* The wordmark's face. Fixed, and deliberately independent of --font-serif: the logo must not
-     shift when someone changes the serif the rest of the app reads in. --font-brand itself is
+     shift when someone changes the font the rest of the app reads in. --font-brand itself is
      defined by next/font on <html>, so the stack gets its own name to avoid self-reference. */
-  --font-brand-stack: var(--font-brand), ui-serif, Georgia, 'Times New Roman', serif;
+  --font-brand-stack: var(--font-brand), 'Helvetica Neue', Arial, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   --color-background: var(--background);
