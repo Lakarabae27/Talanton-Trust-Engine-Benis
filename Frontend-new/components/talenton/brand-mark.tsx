@@ -57,12 +57,13 @@ export function BrandMark({
           className="flex items-baseline"
           style={{
             fontFamily: 'var(--font-brand-stack)',
-            fontWeight: 800,
+            fontWeight: 700,
             fontSize: metrics.word,
             lineHeight: 1,
-            // The artwork sets the letters at their natural width. The previous serif needed
-            // tightening; this face does not, and tightening it jams the squared bowls together.
-            letterSpacing: '0',
+            // A hair looser than the face sets by default. Measured, not guessed: the artwork's
+            // word is 5.63 wide per unit high against Chakra Petch's 5.59, a 0.75% difference
+            // spread over eight letters.
+            letterSpacing: '0.005em',
             color: wordColor,
           }}
         >

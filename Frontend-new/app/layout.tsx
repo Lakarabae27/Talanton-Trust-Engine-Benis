@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Anybody, Fraunces, Geist, Geist_Mono } from 'next/font/google'
+import { Chakra_Petch, Fraunces, Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
 const geistSans = Geist({
@@ -20,15 +20,19 @@ const geistMono = Geist_Mono({
  * font — it is a fixed asset that happens to be set in type rather than drawn. Geist stays the
  * body face and Fraunces the headings; this is only ever used by BrandMark.
  *
- * Anybody at 800, because the mark's bowls are squared rectangles with softened corners, not
- * circles. A geometric sans (Poppins, Rubik) draws a round 'o' and loses the mark entirely; the
- * techy squared faces (Tomorrow, Chakra Petch) chamfer their corners, which it also is not.
- * The weight is 800 rather than 700 — at 700 the strokes are visibly lighter than the artwork.
+ * Chakra Petch at 700. The mark's corners are chamfered — cut at 45 degrees — not rounded, which
+ * is the detail that decides the face: the geometric sans (Rubik, Poppins) draw a round 'o', and
+ * the squared grotesques (Anybody, Saira) round their corners rather than cutting them.
+ *
+ * Checked by measurement rather than by eye, against the supplied artwork: matching the word to
+ * the same width, the artwork's ink box is 5.63 wide per unit high and 40.5% covered. Chakra
+ * Petch 700 gives 5.59 and 42.3%. Anybody 800, which this replaces, gives 6.11 — visibly too
+ * wide and too heavy, and the reason the previous attempt did not look right.
  */
-const brandFace = Anybody({
+const brandFace = Chakra_Petch({
   subsets: ['latin'],
   variable: '--font-brand',
-  weight: ['800'],
+  weight: ['700'],
   display: 'swap',
 })
 
